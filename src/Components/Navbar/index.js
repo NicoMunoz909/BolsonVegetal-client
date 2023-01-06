@@ -1,0 +1,75 @@
+import React from 'react'
+import './Navbar.css'
+import logoSvg from "../../Assets/logo.svg"
+import { FaBars, FaUserCircle, FaShoppingCart, FaHome, FaChevronDown, FaInstagram, FaWhatsapp } from "react-icons/fa"
+import { RxCross1 } from "react-icons/rx"
+
+const Navbar = () => {
+
+  const toggleContent = () => {
+    const content = document.getElementById('content');
+    content.classList.toggle('hmenu-visible');
+    
+    const modal = document.getElementById('modal');
+    modal.classList.toggle('hmenu-opaque');
+
+    const links = document.getElementById('links');
+    links.classList.toggle('hmenu-translateX')
+  }
+
+  return (
+    <div className='navContainer'>
+      <div className='navContent' id='content'>
+        <div className='navModal' id='modal' onClick={toggleContent}>
+          <RxCross1 className='hmenu-close'/>
+        </div>
+        <div className='navLinks' id='links'>
+          <div className='hmenu-header' style={{border: 'none'}}>
+            <img src={logoSvg} alt="" />
+          </div>
+          <div style={{display: 'flex', justifyContent: 'space-between' , alignItems: 'center'}}>
+            <h2>Inicio</h2>
+            <FaHome></FaHome>
+          </div>
+          <div>
+            <h2>Productos</h2>
+            <a href="/bolsones">Bolsones</a>
+            <a href="/frutas">Frutas</a>
+            <a href="/verduras">Verduras</a>
+            <a href="/dietetica" style={{display: 'inline'}}>Dietetica</a> <FaChevronDown />
+            <a href="/congelados">Congelados</a>
+            <a href="/almacen">Almacen</a>
+            <a href="/bebidas">Bebidas</a>
+            <a href="/ofertas">Ofertas</a>
+          </div>
+          <div style={{border: 'none'}}>
+            <h2>Informacion</h2>
+            <a href="/">Quienes Somos</a>
+            <a href="/">Contacto</a>
+            <a href="/">¿Como comprar?</a>
+            <a href="/">Envios</a>
+            <a href="/">Preguntas Frecuentes</a>
+          </div>
+          <div style={{position: 'absolute', bottom:'0', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' , width: '100%', padding: '0', border: 'none'}}>
+            <div style={{border: 'none'}}>
+              <FaInstagram /> <FaWhatsapp />
+            </div>
+            <p style={{margin: '0'}}>El Bolson Vegetal</p>
+          </div>
+        </div>
+      </div>
+      <div className='navBar'>
+        <div>
+          <FaBars onClick={toggleContent}/>
+        </div>
+        <img src={logoSvg} alt="" />
+        <div style={{justifyContent: "flex-end"}}>
+          <FaUserCircle />
+          <FaShoppingCart />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Navbar

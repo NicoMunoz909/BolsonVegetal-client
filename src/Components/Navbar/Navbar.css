@@ -1,0 +1,97 @@
+.navBar {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 5px 10px 5px 10px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+  font-size: 2em;
+}
+
+.navBar img {
+  width: 50px;
+}
+
+.navBar div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100px;
+}
+
+.navBar svg {
+  padding: 5px;
+  color: #009550;
+}
+
+.navContent {
+  visibility: hidden;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  text-align: left;
+  font-family:'Paper Flower', Helvetica;
+  font-size: 1.5em;
+  font-weight: lighter;
+}
+
+.navContent img {
+  display: block;
+  margin: auto;
+  padding: 10px 0 10px 0;
+  width: 80px;
+}
+
+.navLinks {
+  position: fixed;
+  top: 0;
+  width: 75vw;
+  height: 100%;
+  box-shadow: 4px 0 10px 0 rgb(0 0 0 / 40%);
+  background-color: whitesmoke;
+  transform: translateX(-100%);
+  transition: all 300ms ease-out;
+}
+
+.navLinks div {
+  padding: 0px 20px 0px 20px;
+  border-bottom: 4px solid #009550;
+}
+
+.navContent a {
+  display: block;
+}
+
+.navModal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: all 200ms;
+}
+
+.hmenu-opaque {
+  opacity: 1;
+}
+
+.hmenu-translateX {
+  transform: translateX(0);
+}
+
+.hmenu-visible {
+  visibility: visible;
+}
+
+.hmenu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 1.5em;
+}
+
+.hmenu-header {
+  background-color: #009550;
+}

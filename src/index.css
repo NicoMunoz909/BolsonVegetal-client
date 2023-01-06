@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'Paper Flower';
+  src: url('./Assets/Fonts/Paper Flowers.ttf');
+}
+
+@font-face {
+  font-family: 'Bariol';
+  src: url('./Assets/Fonts/bariol_regular-webfont.ttf');
+}
+
+@font-face {
+  font-family: 'Bariol';
+  src: url('./Assets/Fonts/bariol_bold-webfont.ttf');
+  font-weight: bold;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +26,15 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  width: fit-content;
+  margin: 0;
+}
+
+h2 {
+  font-weight: normal;
 }
