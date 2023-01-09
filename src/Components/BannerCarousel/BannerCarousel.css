@@ -1,10 +1,12 @@
 .carouselContainer {
   overflow-x: hidden;
+  margin-top: 65px;
 }
 
 .imgContainer {
   display: flex;
   transition: all 400ms ease-out;
+  width: 100vw;
 }
 
 .imgContainer img {
