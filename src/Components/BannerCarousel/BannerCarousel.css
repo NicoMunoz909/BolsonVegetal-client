@@ -1,0 +1,31 @@
+.carouselContainer {
+  overflow-x: hidden;
+}
+
+.imgContainer {
+  display: flex;
+  transition: all 400ms ease-out;
+}
+
+.imgContainer img {
+  width: 100vw;
+}
+
+.indicatorsContainer {
+  margin-top: 20px;
+  color: rgb(175, 175, 175);
+  font-size: small;
+}
+
+.indicatorsContainer svg {
+  margin: 0 3px 0 3px;
+}
+
+.indicatorsContainer svg:hover {
+  color: rgb(92, 92, 92);
+  cursor: pointer;
+}
+
+.indicatorsContainer .active {
+  color: rgb(92, 92, 92);
+}

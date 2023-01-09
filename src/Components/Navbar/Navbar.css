@@ -34,6 +34,7 @@
   font-family:'Paper Flower', Helvetica;
   font-size: 1.5em;
   font-weight: lighter;
+  z-index: 100;
 }
 
 .navContent img {

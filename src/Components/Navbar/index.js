@@ -1,7 +1,7 @@
 import React from 'react'
 import './Navbar.css'
 import logoSvg from "../../Assets/logo.svg"
-import { FaBars, FaUserCircle, FaShoppingCart, FaHome, FaChevronDown, FaInstagram, FaWhatsapp } from "react-icons/fa"
+import { FaBars, FaShoppingCart, FaHome, FaChevronDown, FaInstagram, FaWhatsapp } from "react-icons/fa"
 import { RxCross1 } from "react-icons/rx"
 
 const Navbar = () => {
@@ -64,7 +64,6 @@ const Navbar = () => {
         </div>
         <img src={logoSvg} alt="" />
         <div style={{justifyContent: "flex-end"}}>
-          <FaUserCircle />
           <FaShoppingCart />
         </div>
       </div>
