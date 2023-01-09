@@ -1,0 +1,18 @@
+.bannerFooter {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.bannerFooter > div {
+  width: 33%;
+  text-align: center;
+  margin: 0 auto 0 auto;
+}
+
+.bannerFooter h3, .bannerFooter p, .bannerFooter a {
+  text-align: center;
+  font-size: smaller;
+  margin: 2px;
+}
