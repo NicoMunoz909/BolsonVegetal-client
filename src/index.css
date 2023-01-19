@@ -36,5 +36,12 @@ a {
 }
 
 h2 {
-  font-weight: normal;
+  font-weight: bold;
+}
+
+.titleUnderline {
+  width: 60px;
+  height: 4px;
+  background-color: #009550;
+  margin: auto;
 }

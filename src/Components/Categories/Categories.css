@@ -1,0 +1,32 @@
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.category {
+  display: flex;
+  justify-content: center;
+  width: 48vw;
+  margin-top: 10px;
+}
+
+.category img {
+  width: 100%;
+}
+
+.category img:hover {
+  background-color: rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+}
+
+.category p {
+  position: absolute;
+  display: block;
+  margin: auto;
+  align-self: center;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+}
