@@ -4,6 +4,7 @@ import BannerFooter from './Components/BannerFooter';
 import Categories from './Components/Categories';
 import ItemsCarouselHome from './Components/ItemsCarouselHome';
 import Navbar from './Components/Navbar';
+import SubscribeBanner from './Components/SubscribeBanner';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
       <ItemsCarouselHome />
       <h2>Ofertas de la semana</h2>
       <div className='titleUnderline'></div>
+      <ItemsCarouselHome />
+      <SubscribeBanner />
     </div>
   );
 }
