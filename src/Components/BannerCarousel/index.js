@@ -14,6 +14,8 @@ const BannerCarousel = () => {
   let dragLeft = false;
   let dragRigth = false;
 
+  const carouselAutoplay = setInterval(autoplay, 3000);
+
   const translateCarousel = (p) => {
     translateX = p;
     const imgContainer = document.getElementById('imgContainer');
@@ -78,8 +80,6 @@ const BannerCarousel = () => {
     dragRigth = false;
     changeIndicator()
   }
-
-  const carouselAutoplay = setInterval(autoplay, 3000);
 
   return (
     <div className='carouselContainer'>
