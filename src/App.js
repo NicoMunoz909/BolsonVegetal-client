@@ -2,6 +2,7 @@ import './App.css';
 import BannerCarousel from './Components/BannerCarousel';
 import BannerFooter from './Components/BannerFooter';
 import Categories from './Components/Categories';
+import Footer from './Components/Footer';
 import ItemsCarouselHome from './Components/ItemsCarouselHome';
 import Navbar from './Components/Navbar';
 import SubscribeBanner from './Components/SubscribeBanner';
@@ -22,6 +23,7 @@ function App() {
       <div className='titleUnderline'></div>
       <ItemsCarouselHome />
       <SubscribeBanner />
+      <Footer />
     </div>
   );
 }
