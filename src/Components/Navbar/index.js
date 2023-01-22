@@ -1,7 +1,7 @@
 import React from 'react'
 import './Navbar.css'
 import logoSvg from "../../Assets/logo.svg"
-import { FaBars, FaShoppingCart, FaHome, FaChevronDown, FaInstagram, FaWhatsapp } from "react-icons/fa"
+import { FaBars, FaShoppingCart, FaHome, FaInstagram, FaWhatsapp } from "react-icons/fa"
 import { RxCross1 } from "react-icons/rx"
 
 const Navbar = () => {
@@ -36,7 +36,7 @@ const Navbar = () => {
             <a href="/bolsones">Bolsones</a>
             <a href="/frutas">Frutas</a>
             <a href="/verduras">Verduras</a>
-            <a href="/dietetica" style={{display: 'inline'}}>Dietetica</a> <FaChevronDown />
+            <a href="/dietetica">Dietetica</a>
             <a href="/congelados">Congelados</a>
             <a href="/almacen">Almacen</a>
             <a href="/bebidas">Bebidas</a>

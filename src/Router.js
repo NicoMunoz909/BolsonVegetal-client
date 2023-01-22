@@ -2,10 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './App';
 import Home from "./Components/Home";
 import ShoppingPage from "./Components/ShoppingPage";
+import * as data from './data.js'
 
 const Router = () => {
 
-  const products = [{name: 'Naranja de jugo', price: '250', priceType: 'KG'}, {name: 'Banana boliviana', price: '320', priceType: 'KG'}, {name: 'Palta Hass', price: '300', priceType: 'U'}, {name: 'Champignon', price: '250', priceType: '100G'}]
+  console.log(data.Congelados)
 
   return (
     <>
@@ -13,7 +14,14 @@ const Router = () => {
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home />}></Route>
-            <Route path="frutas" element={<ShoppingPage titulo='Frutas' filtros={['Agroecologico', 'Citricos']} products={products} />}></Route>
+            <Route path="bolsones" element={<ShoppingPage titulo='Bolsones' filtros={['Agroecologico']} products={data.Bolsones} />}></Route>
+            <Route path="frutas" element={<ShoppingPage titulo='Frutas' filtros={['Agroecologico']} products={data.Frutas} />}></Route>
+            <Route path="verduras" element={<ShoppingPage titulo='Verduras' filtros={['Agroecologico']} products={data.Verduras} />}></Route>
+            <Route path="dietetica" element={<ShoppingPage titulo='Dietetica' filtros={[]} products={data.Dietetica} />}></Route>
+            <Route path="congelados" element={<ShoppingPage titulo='Congelados' filtros={[]} products={data.Congelados} />}></Route>
+            <Route path="almacen" element={<ShoppingPage titulo='Almacen' filtros={[]} products={data.Almacen} />}></Route>
+            <Route path="bebidas" element={<ShoppingPage titulo='Bebibdas' filtros={[]} products={data.Bebidas} />}></Route>
+            <Route path="ofertas" element={<ShoppingPage titulo='Ofertas'  filtros={['Agroecologico']} products={data.Ofertas} />}></Route>
             <Route path="*" element={<h1>404</h1>}></Route>
           </Route>
         </Routes>

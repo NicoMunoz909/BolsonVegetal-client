@@ -53,7 +53,7 @@ const Congelados = [
   {name: 'Franui', price: '990', priceType: 'U', tags:[]},
   {name: 'Milanesa de soja x 4U', price: '240', priceType: 'U', tags:[]},
   {name: 'Pancake by giro', price: '670', priceType: 'U', tags:[]},
-]
+];
 
 const Almacen = [
   {name: 'Mix frutos rojos', price: '2230', priceType: 'KG', tags:[]},
@@ -61,7 +61,7 @@ const Almacen = [
   {name: 'Franui', price: '990', priceType: 'U', tags:[]},
   {name: 'Milanesa de soja x 4U', price: '240', priceType: 'U', tags:[]},
   {name: 'Pancake by giro', price: '670', priceType: 'U', tags:[]},
-]
+];
 
 const Bebidas = [
   {name: 'Amstel 473ml', price: '340', priceType: 'U', tags:[]},
@@ -69,6 +69,15 @@ const Bebidas = [
   {name: 'Coca Cola 1.75L', price: '320', priceType: 'U', tags:[]},
   {name: 'Agua x 1.5L', price: '240', priceType: 'U', tags:[]},
   {name: 'Jugo estancia los naranjos', price: '310', priceType: 'U', tags:[]},
-]
+];
 
-export {Bolsones, Frutas, Verduras, Dietetica, Congelados, Almacen, Bebidas}
+const Ofertas = []
+
+Frutas.forEach(i => {
+  if (i.tags.includes('Oferta')) Ofertas.push(i)
+})
+Verduras.forEach(i => {
+  if (i.tags.includes('Oferta')) Ofertas.push(i)
+})
+
+export {Bolsones, Frutas, Verduras, Dietetica, Congelados, Almacen, Bebidas, Ofertas}
