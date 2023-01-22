@@ -2,6 +2,7 @@ import './App.css';
 import BannerCarousel from './Components/BannerCarousel';
 import BannerFooter from './Components/BannerFooter';
 import Categories from './Components/Categories';
+import ItemsCarouselHome from './Components/ItemsCarouselHome';
 import Navbar from './Components/Navbar';
 
 function App() {
@@ -13,6 +14,11 @@ function App() {
       <h2>Nuestros Productos</h2>
       <div className='titleUnderline'></div>
       <Categories />
+      <h2>Los mas vendidos</h2>
+      <div className='titleUnderline'></div>
+      <ItemsCarouselHome />
+      <h2>Ofertas de la semana</h2>
+      <div className='titleUnderline'></div>
     </div>
   );
 }
