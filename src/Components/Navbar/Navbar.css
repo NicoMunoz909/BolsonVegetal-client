@@ -93,7 +93,7 @@
 }
 
 .hmenu-visible {
-  visibility: visible;
+  visibility: visible !important;
 }
 
 .hmenu-close {
