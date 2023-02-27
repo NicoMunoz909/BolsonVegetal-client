@@ -9,7 +9,7 @@ const ShoppingPage = ({titulo, filtros, products}) => {
   const filterOptions = filtros
 
   function toggleFilters() {
-    document.getElementsByClassName('filterOptions')[0].classList.toggle('hmenu-visible')
+    document.getElementsByClassName('filterOptions')[0].classList.toggle('filterOptions--visible')
     document.getElementById('filtersArrow').classList.toggle('rotated')
   }
 
@@ -20,25 +20,25 @@ const ShoppingPage = ({titulo, filtros, products}) => {
         <img src={banner} alt="" />
       </div>
       <div className='filtersBar'>
-        <div className='searchBar alignCenter'>
-          <FaSearch />
-          <input type="text" />
-        </div>
-        <div>
+        <div className='filtersBar-header'>
+          <div className='searchBar alignCenter'>
+            <FaSearch />
+            <input type="text" />
+          </div>
           <div className='alignCenter' onClick={toggleFilters}>
             Filtros
             <FaChevronDown style={{alignSelf: 'flex-end'}} id='filtersArrow'/>
           </div>
-          <div className='filterOptions'>
-            {filterOptions.map( i => {
-              return (
-                <div>
-                  <input type="checkbox" id={i} name={i} value={i}/>
-                  <label htmlFor={i}>{i}</label>
-                </div>
-              )
-            })}
-          </div>
+        </div>
+        <div className='filterOptions'>
+          {filterOptions.map( i => {
+            return (
+              <div>
+                <input type="checkbox" id={i} name={i} value={i}/>
+                <label htmlFor={i}>{i}</label>
+              </div>
+            )
+          })}
         </div>
       </div>
       <div className='itemsCarouselContainer'>
