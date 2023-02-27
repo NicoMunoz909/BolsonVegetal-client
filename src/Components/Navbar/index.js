@@ -50,7 +50,7 @@ const Navbar = () => {
             <a href="/">Envios</a>
             <a href="/">Preguntas Frecuentes</a>
           </div>
-          <div style={{position: 'absolute', bottom:'0', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' , width: '100%', padding: '0', border: 'none'}}>
+          <div className='navBar-footer'>
             <div style={{border: 'none'}}>
               <FaInstagram /> <FaWhatsapp />
             </div>
