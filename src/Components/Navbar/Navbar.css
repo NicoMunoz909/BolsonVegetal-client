@@ -35,6 +35,21 @@
   color: #009550;
 }
 
+.cartContainer {
+  position: relative;
+  display: flex;
+  justify-content: flex-end !important;
+}
+
+.itemCount {
+  position: absolute;
+  bottom: 20%;
+  right: 3%;
+  font-size: 20px;
+  font-weight: bolder;
+  color: #009550;
+}
+
 .navContent {
   visibility: hidden;
   position: absolute;

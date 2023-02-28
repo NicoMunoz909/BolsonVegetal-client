@@ -63,7 +63,8 @@ const Navbar = () => {
           <FaBars onClick={toggleContent}/>
         </div>
         <img src={logoSvg} alt="" />
-        <div style={{justifyContent: "flex-end"}}>
+        <div className='cartContainer'>
+          <p className='itemCount'>0</p>
           <FaShoppingCart />
         </div>
       </div>
