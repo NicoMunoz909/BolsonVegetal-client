@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { FaChevronDown, FaSearch } from 'react-icons/fa'
 import banner from '../../Assets/frutasBanner.jpg'
 import Item from '../../Assets/item.jpg'
