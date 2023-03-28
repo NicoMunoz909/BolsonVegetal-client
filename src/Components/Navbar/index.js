@@ -1,13 +1,9 @@
-import React, { useContext } from 'react'
 import './Navbar.css'
 import logoSvg from "../../Assets/logo.svg"
 import { FaBars, FaShoppingCart, FaHome, FaInstagram, FaWhatsapp } from "react-icons/fa"
 import { RxCross1 } from "react-icons/rx"
-import { ItemCountContext } from '../../Contexts/ItemCountContext'
 
 const Navbar = () => {
-
-  const itemCount = useContext(ItemCountContext)
 
   const toggleContent = () => {
     const content = document.getElementById('content');
@@ -65,10 +61,12 @@ const Navbar = () => {
         <div>
           <FaBars onClick={toggleContent}/>
         </div>
-        <img src={logoSvg} alt="" />
+        <a href="/"><img src={logoSvg} alt="" /></a>
         <div className='cartContainer'>
-          <p className='itemCount'>{itemCount}</p>
-          <FaShoppingCart />
+          <p className='itemCount'>0</p>
+          <a href="carrito">
+            <FaShoppingCart />
+          </a>
         </div>
       </div>
     </div>
