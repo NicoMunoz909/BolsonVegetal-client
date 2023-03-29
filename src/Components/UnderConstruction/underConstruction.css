@@ -1,0 +1,18 @@
+.underConstruction h1 {
+  margin-top: 90px;
+}
+
+.underConstruction img {
+  width: 400px;
+}
+
+.underConstruction a {
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  padding: 6px 10px 6px 10px;
+  border-radius: 25px;
+  font-size: 30px;
+  background-color: #009550;
+  color: white;
+}

@@ -10,7 +10,7 @@ const BannerFooter = () => {
         <div>
           <h3>Envio gratis</h3>
           <p>En compras mayores a $1000 dentro la zona seleccionada.</p>
-          <a href="/" style={{textDecoration: 'underline',}}>Ver zonas de envio.</a>
+          <a href="/envios" style={{textDecoration: 'underline',}}>Ver zonas de envio.</a>
         </div>
       </div>
       <div>
