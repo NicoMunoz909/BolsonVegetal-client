@@ -43,11 +43,11 @@ const Navbar = () => {
           </div>
           <div style={{border: 'none'}}>
             <h2>Informacion</h2>
-            <a href="/">Quienes Somos</a>
-            <a href="/">Contacto</a>
-            <a href="/">¿Como comprar?</a>
-            <a href="/">Envios</a>
-            <a href="/">Preguntas Frecuentes</a>
+            <a href="/nosotros">Quienes Somos</a>
+            <a href="/contacto">Contacto</a>
+            <a href="/como-comprar">¿Como comprar?</a>
+            <a href="/envios">Envios</a>
+            <a href="/faq">Preguntas Frecuentes</a>
           </div>
           <div className='navBar-footer'>
             <div style={{border: 'none'}}>

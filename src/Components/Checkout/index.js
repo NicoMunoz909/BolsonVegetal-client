@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 import './Checkout.css'
 
 const Checkout = () => {
 
+  const navigateTo = useNavigate()
   let day = '';
 
   switch((new Date()).getDay()) {
@@ -59,6 +61,7 @@ const Checkout = () => {
     e.preventDefault();
     const encodedText = encodeForm();
     window.open(`https://wa.me/543413062939?text=${encodedText}`)
+    navigateTo('/compra-finalizada')
   }
 
   return (

@@ -3,6 +3,7 @@ import App from './App';
 import Cart from "./Components/Cart";
 import Checkout from "./Components/Checkout";
 import Home from "./Components/Home";
+import OrderPlaced from "./Components/OrderPlaced";
 import ShoppingPage from "./Components/ShoppingPage";
 import * as data from './data.js'
 
@@ -24,6 +25,12 @@ const Router = () => {
             <Route path="ofertas" element={<ShoppingPage titulo='Ofertas'  filtros={['Agroecologico']} products={data.Ofertas} />}></Route>
             <Route path="carrito" element={<Cart items={[data.Verduras[0], data.Verduras[3], data.Frutas[2], data.Frutas[5], data.Bolsones[0], data.Dietetica[3],data.Dietetica[3]]} />}></Route>
             <Route path="checkout" element={<Checkout />}></Route>
+            <Route path="compra-finalizada" element={<OrderPlaced />}></Route>
+            <Route path="nosotros" element={''}></Route>
+            <Route path="contacto" element={''}></Route>
+            <Route path="como-comprar" element={''}></Route>
+            <Route path="envios" element={''}></Route>
+            <Route path="faq" element={''}></Route>
             <Route path="*" element={<h1>404</h1>}></Route>
           </Route>
         </Routes>
