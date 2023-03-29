@@ -1,31 +1,91 @@
+import { useState } from 'react'
+import { FaWhatsapp } from 'react-icons/fa'
 import './Checkout.css'
 
 const Checkout = () => {
+
+  let day = '';
+
+  switch((new Date()).getDay()) {
+    case 0:
+      day = 'Lunes'
+      break;
+    case 1:
+      day = 'Lunes'
+      break;
+    case 2:
+      day = 'Martes'
+      break;
+    case 3:
+      day = 'Miercoles'
+      break;
+    case 4:
+      day = 'Jueves'
+      break;
+    case 5:
+      day = 'Viernes'
+      break;
+    case 6:
+      day = 'Sabado'
+      break; 
+    default:
+      break;
+  }
+
+  const [form, setForm] = useState({
+    timeFrom: '17:00',
+    timeTo: '20:30',
+    day: day
+  })
+
+  const encodeForm = () => {
+    const formString = `
+    Pedido de ${form.name}
+    Para el dia ${form.day} entre las ${form.timeFrom} y las ${form.timeTo}
+    Dirección: ${form.street} ${form.streetNumber} ${form.apartment ? form.apartment : ''}
+    ${form.instructions ? 'Instrucciones para la entrega: '+form.instructions : ''}
+    item
+    item
+    item
+    item
+    item
+    item
+    item`
+
+    return encodeURIComponent(formString);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const encodedText = encodeForm();
+    window.open(`https://wa.me/543413062939?text=${encodedText}`)
+  }
+
   return (
     <div>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <h2>Datos y direccion</h2>
         <div className='formField'>
           <label htmlFor="name">Nombre y apellido</label>
-          <input type="text" name="name" id="name" />
+          <input onChange={(e) => setForm({...form, name: e.target.value})} type="text" name="name" id="name" placeholder='Nombre de quien recibe' required/>
         </div>
         <div style={{display: 'flex'}}>
           <div className='formField'>
             <label htmlFor="street">Calle</label>
-            <input type="text" name="street" id="street" />
+            <input onChange={(e) => setForm({...form, street: e.target.value})} type="text" name="street" id="street" required/>
           </div>
           <div className='formField' style={{width: '20%'}}>
             <label htmlFor="streetNumber">Número</label>
-            <input type="text" name="streetNumber" id="streetNumber" />
+            <input onChange={(e) => setForm({...form, streetNumber: e.target.value})} type="text" name="streetNumber" id="streetNumber" required/>
           </div>
           <div className='formField' style={{width: '20%'}}>
             <label htmlFor="apartment">Depto</label>
-            <input type="text" name="apartment" id="apartment" />
+            <input onChange={(e) => setForm({...form, apartment: e.target.value})} type="text" name="apartment" id="apartment" />
           </div>
         </div>
         <div className='formField'>
           <label htmlFor="phone">Telefono</label>
-          <input type="tel" name="phone" id="phone" />
+          <input onChange={(e) => setForm({...form, phone: e.target.value})} type="tel" name="phone" id="phone" placeholder='Telefono de quien recibe' required/>
         </div>
         <h2>Dia y hora de entrega</h2>
         <p>Nuestros horarios de entrega son</p>
@@ -33,36 +93,36 @@ const Checkout = () => {
         <p>Sabados: 10 a 14</p>
         <p>Si necesitas coordinar la entrega para algun horario especifico dentro de ese rango especificalo acá</p>
         <div style={{display: 'flex', justifyContent: 'space-around', textAlign: 'left'}}>
-          <div>
-            <input type="radio" name="day" id="day-monday" />
+          <div onChange={(e) => setForm({...form, day: e.target.value})}>
+            <input type="radio" name="day" id="day-monday" value='Lunes' defaultChecked={ day === 'Lunes'}/>
             <label htmlFor="day-lunes"> Lunes</label> <br />
-            <input type="radio" name="day" id="day-tuesday" />
+            <input type="radio" name="day" id="day-tuesday" value='Martes' defaultChecked={ day === 'Martes'}/>
             <label htmlFor="day-tuesday"> Martes</label> <br />
-            <input type="radio" name="day" id="day-wednesday" />
+            <input type="radio" name="day" id="day-wednesday" value='Miercoles' defaultChecked={ day === 'Miercoles'}/>
             <label htmlFor="day-wednesday"> Miercoles</label> <br />
-            <input type="radio" name="day" id="day-thursday" />
+            <input type="radio" name="day" id="day-thursday" value='Jueves' defaultChecked={ day === 'Jueves'}/>
             <label htmlFor="day-thursday"> Jueves</label> <br />
-            <input type="radio" name="day" id="day-friday" />
+            <input type="radio" name="day" id="day-friday" value='Viernes' defaultChecked={ day === 'Viernes'}/>
             <label htmlFor="day-friday"> Viernes</label> <br />
-            <input type="radio" name="day" id="day-saturday" />
+            <input type="radio" name="day" id="day-saturday" value='Sabado' defaultChecked={ day === 'Sabado'}/>
             <label htmlFor="day-saturday"> Sábado</label> <br />
           </div>
           <div style={{textAlign: 'right'}}>
             <div>
               <label htmlFor="time-from">De </label>
-              <input type="time" name="time" id="time-from" defaultValue='17:00'/>
+              <input onChange={(e) => setForm({...form, timeFrom: e.target.value})} type="time" name="time" id="time-from" defaultValue='17:00'/>
             </div>
             <div>
               <label htmlFor="time-to">A </label>
-              <input type="time" name="time" id="time-to" defaultValue='20:30'/>
+              <input onChange={(e) => setForm({...form, timeTo: e.target.value})} type="time" name="time" id="time-to" defaultValue='20:30'/>
             </div>
           </div>
         </div>
         <div className="formField">
           <label htmlFor="instructions">Instrucciones para la entrega</label>
-          <textarea name="instructions" id="instructions" cols="50" rows="5"></textarea>
+          <textarea onChange={(e) => setForm({...form, instructions: e.target.value})} name="instructions" id="instructions" cols="50" rows="5" placeholder='Ejemplo: No anda el portero, llamar'></textarea>
         </div>
-        <button onClick={e => e.preventDefault()} type="submit">Completar pedido</button>
+        <button type="submit">Completar pedido en WhatsApp <FaWhatsapp /></button>
       </form>
     </div>
     )
