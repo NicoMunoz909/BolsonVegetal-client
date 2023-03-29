@@ -33,7 +33,7 @@ const Cart = ({items}) => {
       })}
       <div className='cart-footer'>
         <p>Total: ${items.reduce((total, current) => total + parseFloat(current.price), 0)}</p>
-        <button style={{textDecoration: 'underline'}} className='cart-footer__checkout'>Ir a pagar</button>
+        <a href="/checkout" style={{height: 'fit-content'}}><button style={{textDecoration: 'underline'}} className='cart-footer__checkout'>Ir a pagar</button></a>
       </div>
     </div>
     )
