@@ -64,35 +64,35 @@ const Checkout = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h2>Datos y direccion</h2>
-        <div className='formField'>
+        <h2 style={{marginTop: '90px'}} className='form-header'>Datos y direccion</h2>
+        <div className='form-field' style={{marginTop: '15px'}}>
           <label htmlFor="name">Nombre y apellido</label>
           <input onChange={(e) => setForm({...form, name: e.target.value})} type="text" name="name" id="name" placeholder='Nombre de quien recibe' required/>
         </div>
-        <div style={{display: 'flex'}}>
-          <div className='formField'>
+        <div style={{display: 'flex', maxWidth: '300px', margin: 'auto', padding: '0px'}}>
+          <div className='form-field'>
             <label htmlFor="street">Calle</label>
             <input onChange={(e) => setForm({...form, street: e.target.value})} type="text" name="street" id="street" required/>
           </div>
-          <div className='formField' style={{width: '20%'}}>
+          <div className='form-field' style={{width: '20%'}}>
             <label htmlFor="streetNumber">Número</label>
             <input onChange={(e) => setForm({...form, streetNumber: e.target.value})} type="text" name="streetNumber" id="streetNumber" required/>
           </div>
-          <div className='formField' style={{width: '20%'}}>
+          <div className='form-field' style={{width: '20%'}}>
             <label htmlFor="apartment">Depto</label>
             <input onChange={(e) => setForm({...form, apartment: e.target.value})} type="text" name="apartment" id="apartment" />
           </div>
         </div>
-        <div className='formField'>
+        <div className='form-field'>
           <label htmlFor="phone">Telefono</label>
           <input onChange={(e) => setForm({...form, phone: e.target.value})} type="tel" name="phone" id="phone" placeholder='Telefono de quien recibe' required/>
         </div>
-        <h2>Dia y hora de entrega</h2>
+        <h2 className='form-header'>Dia y hora de entrega</h2>
         <p>Nuestros horarios de entrega son</p>
         <p>Lunes a Viernes: 17 a 20:30</p>
         <p>Sabados: 10 a 14</p>
         <p>Si necesitas coordinar la entrega para algun horario especifico dentro de ese rango especificalo acá</p>
-        <div style={{display: 'flex', justifyContent: 'space-around', textAlign: 'left'}}>
+        <div style={{display: 'flex', justifyContent: 'space-around', textAlign: 'left', width: '60%', margin: 'auto'}}>
           <div onChange={(e) => setForm({...form, day: e.target.value})}>
             <input type="radio" name="day" id="day-monday" value='Lunes' defaultChecked={ day === 'Lunes'}/>
             <label htmlFor="day-lunes"> Lunes</label> <br />
@@ -118,11 +118,11 @@ const Checkout = () => {
             </div>
           </div>
         </div>
-        <div className="formField">
+        <div className="form-field" style={{marginTop: '30px'}}>
           <label htmlFor="instructions">Instrucciones para la entrega</label>
           <textarea onChange={(e) => setForm({...form, instructions: e.target.value})} name="instructions" id="instructions" cols="50" rows="5" placeholder='Ejemplo: No anda el portero, llamar'></textarea>
         </div>
-        <button type="submit">Completar pedido en WhatsApp <FaWhatsapp /></button>
+        <button type="submit">Completar pedido en WhatsApp<FaWhatsapp /></button>
       </form>
     </div>
     )
