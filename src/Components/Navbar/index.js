@@ -2,8 +2,12 @@ import './Navbar.css'
 import logoSvg from "../../Assets/logo.svg"
 import { FaBars, FaShoppingCart, FaHome, FaInstagram, FaWhatsapp } from "react-icons/fa"
 import { RxCross1 } from "react-icons/rx"
+import { useContext } from 'react'
+import { CartContext } from '../../Contexts/CartContext'
 
 const Navbar = () => {
+
+  const cart = useContext(CartContext);
 
   const toggleContent = () => {
     const content = document.getElementById('content');
@@ -27,7 +31,7 @@ const Navbar = () => {
             <img src={logoSvg} alt="" />
           </div>
           <div>
-            <a href="" style={{display: 'flex', justifyContent: 'space-between' , alignItems: 'center', width: '100%'}}>
+            <a href="/" style={{display: 'flex', justifyContent: 'space-between' , alignItems: 'center', width: '100%'}}>
               <h2>Inicio</h2>
               <FaHome></FaHome>
             </a>
@@ -65,7 +69,7 @@ const Navbar = () => {
         </div>
         <a href="/"><img src={logoSvg} alt="" /></a>
         <div className='cartContainer'>
-          <p className='itemCount'>0</p>
+          <p className='itemCount'>{cart.length}</p>
           <a href="carrito">
             <FaShoppingCart />
           </a>

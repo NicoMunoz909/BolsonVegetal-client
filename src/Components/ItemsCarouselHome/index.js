@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa'
 import './ItemsCarouselHome.css'
 import Item from '../../Assets/item.jpg'
+import { CartDispacthContext } from '../../Contexts/CartContext'
 
 const ItemsCarouselHome = ({ id }) => {
+
+  const dispatch = useContext(CartDispacthContext);
 
   const items = [{name: 'Naranja de jugo', price: '250', priceType: 'KG'}, {name: 'Banana boliviana', price: '320', priceType: 'KG'}, {name: 'Palta Hass', price: '300', priceType: 'U'}, {name: 'Champignon', price: '250', priceType: '100G'}]
 
@@ -44,7 +47,7 @@ const ItemsCarouselHome = ({ id }) => {
                 <img src={Item} alt={i.name} />
                 <h3>{i.name}</h3>
                 <p>${i.price} x {i.priceType}</p>
-                <button>Añadir al carrito</button>
+                <button onClick={() => dispatch({type: 'ADD', item: i})}>Añadir al carrito</button>
               </div>
             </div>
           )

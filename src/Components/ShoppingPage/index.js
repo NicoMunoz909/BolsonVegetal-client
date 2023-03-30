@@ -1,17 +1,19 @@
-import { useState } from 'react'
-import { FaChevronDown, FaSearch } from 'react-icons/fa'
+import { useContext, useState } from 'react'
+import { FaSearch } from 'react-icons/fa'
 import banner from '../../Assets/frutasBanner.jpg'
 import Item from '../../Assets/item.jpg'
 import './shoppingPage.css'
+import { CartDispacthContext } from '../../Contexts/CartContext'
 
 const ShoppingPage = ({titulo, products}) => {
 
-  // const filterOptions = filtros
+  const dispatch = useContext(CartDispacthContext);
 
-  function toggleFilters() {
-    document.getElementsByClassName('filterOptions')[0].classList.toggle('filterOptions--visible')
-    document.getElementById('filtersArrow').classList.toggle('rotated')
-  }
+  // const filterOptions = filtros
+  // function toggleFilters() {
+  //   document.getElementsByClassName('filterOptions')[0].classList.toggle('filterOptions--visible')
+  //   document.getElementById('filtersArrow').classList.toggle('rotated')
+  // }
 
   const [search, setSearch] = useState('')
 
@@ -41,7 +43,8 @@ const ShoppingPage = ({titulo, products}) => {
               </div>
             )
           })}
-        </div> */}
+        </div> 
+        not using filter right now, might implement in the future*/}
       </div>
       <div className='itemsCarouselContainer'>
         <div className='itemsContainer' style={{flexWrap: 'wrap'}}>
@@ -52,7 +55,7 @@ const ShoppingPage = ({titulo, products}) => {
                   <img src={Item} alt={i.name} />
                   <h3>{i.name}</h3>
                   <p>${i.price} x {i.priceType}</p>
-                  <button>Añadir al carrito</button>
+                  <button onClick={() => dispatch({type: 'ADD', item: i})}>Añadir al carrito</button>
                 </div>
               </div>
             )
