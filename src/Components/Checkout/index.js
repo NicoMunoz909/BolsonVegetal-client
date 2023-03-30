@@ -83,6 +83,8 @@ const Checkout = () => {
     const formString = `Pedido de *${form.name}*
 Para el dia *${form.day}* entre las *${form.timeFrom}* y las *${form.timeTo}*
 Dirección: *${form.street} ${form.streetNumber}${form.apartment ? ' ' + form.apartment + '*' : '*'}
+Telefono: *${form.phone}*
+Forma de pago: *${form.payment}*
 ${form.instructions ? 'Instrucciones para la entrega: '+form.instructions : ''}
 ${cart.map(product => {
       return `${formatQuantity(product.quant, product.priceType)} ${product.name}`
@@ -159,6 +161,19 @@ ${cart.map(product => {
         <div className="form-field" style={{marginTop: '30px'}}>
           <label htmlFor="instructions">Instrucciones para la entrega</label>
           <textarea onChange={(e) => setForm({...form, instructions: e.target.value})} name="instructions" id="instructions" cols="50" rows="5" placeholder='Ejemplo: No anda el portero, llamar'></textarea>
+        </div>
+        <h2 className='form-header'>Forma de pago</h2>
+        <div style={{display: 'flex', justifyContent: 'space-around', textAlign: 'left', width: '60%', margin: 'auto'}}>
+          <div onChange={(e) => setForm({...form, payment: e.target.value})}>
+            <input type="radio" name="payment" id="cash" value='Efectivo' defaultChecked/>
+            <label htmlFor="cash"> Efectivo</label> <br />
+            <input type="radio" name="payment" id="wallet" value='Billetera Santa Fe'/>
+            <label htmlFor="wallet"> Billetera Santa Fe</label> <br />
+            <input type="radio" name="payment" id="transfer" value='Transferencia'/>
+            <label htmlFor="transfer"> Transferencia</label> <br />
+            <input type="radio" name="payment" id="card" value='Tarjeta de Crédito/Debito'/>
+            <label htmlFor="card"> Tarjeta de Credito/Debito</label> <br />
+          </div>
         </div>
         <button type="submit">Completar pedido en WhatsApp<FaWhatsapp /></button>
       </form>
