@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
+import { CartContext } from '../../Contexts/CartContext'
 import './Checkout.css'
 
 const Checkout = () => {
+
+  const cart = useContext(CartContext);
 
   const navigateTo = useNavigate()
   let day = '';
@@ -41,18 +44,13 @@ const Checkout = () => {
   })
 
   const encodeForm = () => {
-    const formString = `
-    Pedido de ${form.name}
-    Para el dia ${form.day} entre las ${form.timeFrom} y las ${form.timeTo}
-    Dirección: ${form.street} ${form.streetNumber} ${form.apartment ? form.apartment : ''}
-    ${form.instructions ? 'Instrucciones para la entrega: '+form.instructions : ''}
-    item
-    item
-    item
-    item
-    item
-    item
-    item`
+    const formString = `Pedido de *${form.name}*
+Para el dia *${form.day}* entre las *${form.timeFrom}* y las *${form.timeTo}*
+Dirección: *${form.street} ${form.streetNumber}${form.apartment ? ' ' + form.apartment + '*' : '*'}
+${form.instructions ? 'Instrucciones para la entrega: '+form.instructions : ''}
+${cart.map(product => {
+      return product.name
+    }).join('\n')}`
 
     return encodeURIComponent(formString);
   }
