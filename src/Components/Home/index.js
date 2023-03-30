@@ -15,10 +15,10 @@ const Home = () => {
       <Categories />
       <h2>Los mas vendidos</h2>
       <div className='titleUnderline'></div>
-      <ItemsCarouselHome />
+      <ItemsCarouselHome id='most-sold'/>
       <h2>Ofertas de la semana</h2>
       <div className='titleUnderline'></div>
-      <ItemsCarouselHome />
+      <ItemsCarouselHome id='week-sale'/>
       <SubscribeBanner />
     </>
   )
