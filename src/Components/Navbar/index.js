@@ -25,7 +25,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='navContainer' onClick={() => console.log(cart)}>
+    <div className='navContainer'>
       <div className='navContent' id='content'>
         <div className='navModal' id='modal' onClick={toggleContent}>
           <RxCross1 className='hmenu-close'/>
