@@ -1,12 +1,13 @@
 import { useContext, useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
-import { CartContext } from '../../Contexts/CartContext'
+import { CartContext, CartDispacthContext } from '../../Contexts/CartContext'
 import './Checkout.css'
 
 const Checkout = () => {
 
   const cart = useContext(CartContext);
+  const dispatch = useContext(CartDispacthContext);
 
   const navigateTo = useNavigate()
   let day = '';
@@ -49,7 +50,7 @@ Para el dia *${form.day}* entre las *${form.timeFrom}* y las *${form.timeTo}*
 Dirección: *${form.street} ${form.streetNumber}${form.apartment ? ' ' + form.apartment + '*' : '*'}
 ${form.instructions ? 'Instrucciones para la entrega: '+form.instructions : ''}
 ${cart.map(product => {
-      return product.name
+      return `${product.quant} ${product.priceType} ${product.name}`
     }).join('\n')}`
 
     return encodeURIComponent(formString);
@@ -59,6 +60,7 @@ ${cart.map(product => {
     e.preventDefault();
     const encodedText = encodeForm();
     window.open(`https://wa.me/543413062939?text=${encodedText}`)
+    dispatch({type: 'CLEAR'})
     navigateTo('/compra-finalizada')
   }
 

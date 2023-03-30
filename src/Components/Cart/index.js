@@ -22,11 +22,11 @@ const Cart = () => {
           <div className='cart-item'>
             <div className='cart-item__description' style={{fontSize: i.name.length > 10 ? '15px':'20px'}}>
               <p>{i.name} x {i.priceType}</p>
-              <p>Cantidad: 1</p>
+              <p>Cantidad: {i.quant}</p>
               <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '16px'}}>
                 <div>
-                  <button className='cart-item__plus'><FaPlus/></button>
-                  <button className='cart-item__minus'><FaMinus/></button>
+                  <button onClick={() => dispatch({type: 'ADD', item: i})} className='cart-item__plus'><FaPlus/></button>
+                  <button onClick={() => dispatch({type: 'REMOVE', item: i})} className='cart-item__minus'><FaMinus/></button>
                 </div>
                 <button style={{border: 'none'}} onClick={() => dispatch({type: 'DELETE', name: i.name})}><FaTrashAlt/></button>
               </div>
@@ -39,8 +39,11 @@ const Cart = () => {
         )
       })}
       <div className='cart-footer'>
-        <p>Total: ${items.reduce((total, current) => total + parseFloat(current.price), 0)}</p>
-        {items.length > 0 && <a href="/checkout" style={{height: 'fit-content'}}><button style={{textDecoration: 'underline'}} className='cart-footer__checkout'>Ir a pagar</button></a>}
+        <p>Total: ${items.reduce((total, current) => total + parseFloat(current.price * current.quant), 0)}</p>
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+          {items.length > 0 && <a href="/checkout" style={{height: 'fit-content'}}><button style={{textDecoration: 'underline'}} className='cart-footer__checkout'>Ir a pagar</button></a>}
+          {items.length > 0 && <button style={{fontSize: '12px', textDecoration: 'underline', backgroundColor: 'transparent'}} onClick={() => dispatch({type: 'CLEAR'})}>Vaciar carrito</button>}
+        </div>
       </div>
     </div>
     )

@@ -8,6 +8,10 @@ import { CartContext } from '../../Contexts/CartContext'
 const Navbar = () => {
 
   const cart = useContext(CartContext);
+  let itemCount = 0;
+  cart.forEach(item => {
+    itemCount += item.quant;
+  });
 
   const toggleContent = () => {
     const content = document.getElementById('content');
@@ -21,7 +25,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='navContainer'>
+    <div className='navContainer' onClick={() => console.log(cart)}>
       <div className='navContent' id='content'>
         <div className='navModal' id='modal' onClick={toggleContent}>
           <RxCross1 className='hmenu-close'/>
@@ -69,7 +73,7 @@ const Navbar = () => {
         </div>
         <a href="/"><img src={logoSvg} alt="" /></a>
         <div className='cartContainer'>
-          <p className='itemCount'>{cart.length}</p>
+          <p className='itemCount'>{itemCount}</p>
           <a href="carrito">
             <FaShoppingCart />
           </a>
