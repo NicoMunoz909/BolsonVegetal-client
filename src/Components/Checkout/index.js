@@ -44,13 +44,48 @@ const Checkout = () => {
     day: day
   })
 
+  const formatQuantity = (quantity, priceType) => {
+    let totalQuantity = 0
+    switch (priceType) {
+      case '100G':
+        totalQuantity = quantity * 100
+        if (totalQuantity >= 1000) {
+          return totalQuantity/1000 + 'KG'
+        } else {
+          return totalQuantity + 'G'
+        }
+      case '¼KG':
+        totalQuantity = quantity * 250
+        if (totalQuantity >= 1000) {
+          return totalQuantity/1000 + 'KG'
+        } else {
+          return totalQuantity + 'G'
+        }
+      case '½KG':
+          totalQuantity = quantity * 500
+          if (totalQuantity >= 1000) {
+          return totalQuantity/1000 + 'KG'
+        } else {
+          return totalQuantity + 'G'
+        }
+      case 'KG':
+          totalQuantity = quantity
+          return totalQuantity + 'KG';
+      case 'U':
+          totalQuantity = quantity
+          return totalQuantity + 'U';
+      default:
+        break;
+    }
+  }
+
   const encodeForm = () => {
     const formString = `Pedido de *${form.name}*
 Para el dia *${form.day}* entre las *${form.timeFrom}* y las *${form.timeTo}*
 Dirección: *${form.street} ${form.streetNumber}${form.apartment ? ' ' + form.apartment + '*' : '*'}
 ${form.instructions ? 'Instrucciones para la entrega: '+form.instructions : ''}
 ${cart.map(product => {
-      return `${product.quant} ${product.priceType} ${product.name}`
+      return `${formatQuantity(product.quant, product.priceType)} ${product.name}`
     }).join('\n')}`
 
     return encodeURIComponent(formString);
@@ -82,7 +117,7 @@ ${cart.map(product => {
             <input onChange={(e) => setForm({...form, streetNumber: e.target.value})} type="text" name="streetNumber" id="streetNumber" required/>
           </div>
           <div className='form-field' style={{width: '20%'}}>
-            <label htmlFor="apartment">Depto</label>
+            <label htmlFor="apartment">Depto.</label>
             <input onChange={(e) => setForm({...form, apartment: e.target.value})} type="text" name="apartment" id="apartment" />
           </div>
         </div>

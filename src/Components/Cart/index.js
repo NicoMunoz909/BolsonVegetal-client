@@ -40,13 +40,10 @@ const Cart = () => {
       })}
       <div className='cart-footer'>
         <p>Total: ${items.reduce((total, current) => total + parseFloat(current.price * current.quant), 0)}</p>
-        <div style={{display: 'flex', flexDirection: 'column'}}>
-          {items.length > 0 && <a href="/checkout" style={{height: 'fit-content'}}><button style={{textDecoration: 'underline'}} className='cart-footer__checkout'>Ir a pagar</button></a>}
-          {items.length > 0 && <button style={{fontSize: '12px', textDecoration: 'underline', backgroundColor: 'transparent'}} onClick={() => dispatch({type: 'CLEAR'})}>Vaciar carrito</button>}
-        </div>
+        {items.length > 0 && <a href="/checkout" style={{height: 'fit-content'}}><button style={{textDecoration: 'underline'}} className='cart-footer__checkout'>Ir a pagar</button></a>}
       </div>
     </div>
-    )
-  }
+  )
+}
   
   export default Cart
