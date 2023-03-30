@@ -4,7 +4,7 @@ import category from '../../Assets/category.png'
 
 const Categories = (props) => {
 
-  const categories = ['Bolsones', 'Frutas', 'Verduras', 'Dietetica', 'Almacen', 'Congelados', 'Bebidas', 'Ofertas']
+  const categories = ['bolsones', 'frutas', 'verduras', 'dietetica', 'almacen', 'congelados', 'bebidas', 'ofertas']
 
   return (
     <div>
@@ -13,8 +13,10 @@ const Categories = (props) => {
         {categories.map( (i) => {
           return (
             <div className='category'>
-              <p>categoría</p>
-              <img src={category} alt="" />
+              <a href={i}>
+                <p>{i}</p>
+                <img src={category} alt="" />
+              </a>  
             </div>
           )
         })}

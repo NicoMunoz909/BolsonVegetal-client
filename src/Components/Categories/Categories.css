@@ -21,6 +21,11 @@
   cursor: pointer;
 }
 
+.category a {
+  display: flex;
+  justify-content: center;
+}
+
 .category p {
   position: absolute;
   display: block;

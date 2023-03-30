@@ -26,9 +26,11 @@ const Navbar = () => {
           <div className='hmenu-header' style={{border: 'none'}}>
             <img src={logoSvg} alt="" />
           </div>
-          <div style={{display: 'flex', justifyContent: 'space-between' , alignItems: 'center'}}>
-            <h2>Inicio</h2>
-            <FaHome></FaHome>
+          <div>
+            <a href="" style={{display: 'flex', justifyContent: 'space-between' , alignItems: 'center', width: '100%'}}>
+              <h2>Inicio</h2>
+              <FaHome></FaHome>
+            </a>
           </div>
           <div>
             <h2>Productos</h2>
