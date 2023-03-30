@@ -1,16 +1,19 @@
+import { useState } from 'react'
 import { FaChevronDown, FaSearch } from 'react-icons/fa'
 import banner from '../../Assets/frutasBanner.jpg'
 import Item from '../../Assets/item.jpg'
 import './shoppingPage.css'
 
-const ShoppingPage = ({titulo, filtros, products}) => {
+const ShoppingPage = ({titulo, products}) => {
 
-  const filterOptions = filtros
+  // const filterOptions = filtros
 
   function toggleFilters() {
     document.getElementsByClassName('filterOptions')[0].classList.toggle('filterOptions--visible')
     document.getElementById('filtersArrow').classList.toggle('rotated')
   }
+
+  const [search, setSearch] = useState('')
 
   return (
     <div>
@@ -22,14 +25,14 @@ const ShoppingPage = ({titulo, filtros, products}) => {
         <div className='filtersBar-header'>
           <div className='searchBar alignCenter'>
             <FaSearch />
-            <input type="text" />
+            <input type="text" onChange={(e) => setSearch(e.target.value)}/>
           </div>
-          <div className='alignCenter' onClick={toggleFilters}>
+          {/* <div className='alignCenter' onClick={toggleFilters}>
             Filtros
             <FaChevronDown style={{alignSelf: 'flex-end'}} id='filtersArrow'/>
-          </div>
+          </div> */}
         </div>
-        <div className='filterOptions'>
+        {/* <div className='filterOptions'>
           {filterOptions.map( i => {
             return (
               <div>
@@ -38,11 +41,11 @@ const ShoppingPage = ({titulo, filtros, products}) => {
               </div>
             )
           })}
-        </div>
+        </div> */}
       </div>
       <div className='itemsCarouselContainer'>
         <div className='itemsContainer' style={{flexWrap: 'wrap'}}>
-          {products.map( i => {
+          {products.filter(item => item.name.toLowerCase().includes(search.toLowerCase())).map( i => {
             return (
               <div className='itemContainer' id='items-container' style={{width: '40%'}}>
                 <div className='item'>
