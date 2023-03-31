@@ -1,0 +1,66 @@
+.products-modal__background {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.534);
+}
+
+.products-modal__container {
+    position: relative;
+    top: 10%;
+    left: 14%;
+    width: 50%;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.products-modal__imgContainer {
+    width: 150px;
+    margin: 20px auto;
+}
+
+.products-modal__imgContainer img{
+    width: 100%;
+}
+
+.products-modal__header {
+    margin: 0 0 20px;
+    padding: 5px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #009550;
+    color: white;
+    font-family: 'Paper Flower';
+    font-size: 30px;
+    text-align: center;
+}
+
+.products-modal__formField {
+    margin: 10px 20px;
+}
+
+.products-itemContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px 1px rgb(110, 109, 109) inset;
+}
+
+.products-itemImgContainer img{
+    width: 150px;
+}
+
+.products-itemActions button {
+    border: none;
+    background-color: transparent;
+}
+
+.products-itemActions button:hover {
+    color: #009550;
+    cursor: pointer;
+}

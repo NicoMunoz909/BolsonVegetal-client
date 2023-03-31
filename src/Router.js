@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './App';
 import Backoffice from "./Components/Backoffice";
+import Products from "./Components/Backoffice/Products";
 import Cart from "./Components/Cart";
 import Checkout from "./Components/Checkout";
 import Home from "./Components/Home";
@@ -16,8 +17,7 @@ const Router = () => {
       <BrowserRouter>
         <Routes>
           <Route path="backoffice" element={<Backoffice />}>
-            {/* <Route index element={<Backoffice />}></Route> */}
-            <Route path="productos" element={<h1>Productos</h1>}></Route>
+            <Route path="productos" element={<Products />}></Route>
             <Route path="pagina" element={<h1>Página Web</h1>}></Route>
           </Route>
           <Route path="/" element={<App />}>

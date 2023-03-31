@@ -1,0 +1,9 @@
+.backoffice-header {
+    width: 90%;
+    margin: 30px auto;
+    padding: 5px 15px;
+    border-radius: 25px;
+    background-color: #009550;
+    color: white;
+    font-family: 'Paper Flower';
+}
