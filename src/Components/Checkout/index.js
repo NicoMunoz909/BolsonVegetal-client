@@ -41,7 +41,8 @@ const Checkout = () => {
   const [form, setForm] = useState({
     timeFrom: '17:00',
     timeTo: '20:30',
-    day: day
+    day: day,
+    payment: 'Efectivo'
   })
 
   const formatQuantity = (quantity, priceType) => {
