@@ -6,33 +6,33 @@ const Bolsones = [
 ]
 
 const Frutas = [
-  {name: 'Naranja de jugo', price: '250', priceType: 'KG', tags:['agroecologico']},
+  {name: 'Naranja de jugo', price: '250', priceType: 'KG', tags:['Agroecologico']},
   {name: 'Banana boliviana', price: '320', priceType: 'KG', tags:[]},
   {name: 'Palta Hass', price: '300', priceType: 'U', tags:[]},
-  {name: 'Oferta 2kg naranja', price: '400', priceType: '2KG', tags:['oferta']},
+  {name: 'Oferta 2kg naranja', price: '400', priceType: '2KG', tags:['Oferta']},
   {name: 'Ciruela', price: '780', priceType: 'KG', tags:[]},
-  {name: 'Durazno', price: '890', priceType: 'KG', tags:['agroecologico']},
+  {name: 'Durazno', price: '890', priceType: 'KG', tags:['Agroecologico']},
   {name: 'Uva blanca sin semilla', price: '300', priceType: '½KG', tags:[]},
   {name: 'Cereza', price: '275', priceType: '¼KG', tags:[]},
-  {name: 'Pomelo', price: '350', priceType: 'KG', tags:['agroecologico']},
+  {name: 'Pomelo', price: '350', priceType: 'KG', tags:['Agroecologico']},
   {name: 'Melón rocio de miel', price: '700', priceType: 'U', tags:[]},
   {name: 'Mandarina', price: '280', priceType: 'KG', tags:[]},
-  {name: 'Oferta 2 anana', price: '600', priceType: '2U', tags:['oferta']},
+  {name: 'Oferta 2 anana', price: '600', priceType: '2U', tags:['Oferta']},
 ];
 
 const Verduras = [
-  {name: 'Champignon', price: '250', priceType: '100G', tags:['agroecologico']},
+  {name: 'Champignon', price: '250', priceType: '100G', tags:['Agroecologico']},
   {name: 'Lechuga Repollada', price: '400', priceType: '½KG', tags:[]},
-  {name: 'Zuchini', price: '230', priceType: 'KG', tags:['agroecologico']},
+  {name: 'Zuchini', price: '230', priceType: 'KG', tags:['Agroecologico']},
   {name: 'Papa', price: '280', priceType: 'KG', tags:[]},
-  {name: 'Brocoli', price: '500', priceType: 'U', tags:['agroecologico']},
+  {name: 'Brocoli', price: '500', priceType: 'U', tags:['Agroecologico']},
   {name: 'Camote boniato', price: '410', priceType: 'KG', tags:[]},
-  {name: 'Berenjena', price: '230', priceType: 'KG', tags:['agroecologico']},
-  {name: 'Espinaca', price: '240', priceType: 'U', tags:['oferta']},
-  {name: 'Oferta 2kg papa', price: '500', priceType: 'KG', tags:['oferta']},
-  {name: 'Oferta 2kg tomate', price: '300', priceType: '100G', tags:['oferta']},
+  {name: 'Berenjena', price: '230', priceType: 'KG', tags:['Agroecologico']},
+  {name: 'Espinaca', price: '240', priceType: 'U', tags:['Oferta']},
+  {name: 'Oferta 2kg papa', price: '500', priceType: 'KG', tags:['Oferta']},
+  {name: 'Oferta 2kg tomate', price: '300', priceType: '100G', tags:['Oferta']},
   {name: 'Tomate redondo', price: '200', priceType: 'KG', tags:[]},
-  {name: 'Tomate cherry', price: '250', priceType: '¼KG', tags:['agroecologico']},
+  {name: 'Tomate cherry', price: '250', priceType: '¼KG', tags:['Agroecologico']},
 ];
 
 const Dietetica = [
@@ -74,10 +74,10 @@ const Bebidas = [
 const Ofertas = []
 
 Frutas.forEach(i => {
-  if (i.tags.includes('oferta')) Ofertas.push(i)
+  if (i.tags.includes('Oferta')) Ofertas.push(i)
 })
 Verduras.forEach(i => {
-  if (i.tags.includes('oferta')) Ofertas.push(i)
+  if (i.tags.includes('Oferta')) Ofertas.push(i)
 })
 
 export {Bolsones, Frutas, Verduras, Dietetica, Congelados, Almacen, Bebidas, Ofertas}
