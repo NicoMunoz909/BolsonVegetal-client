@@ -1,0 +1,10 @@
+{
+  "resourceName": "bolsonDynamoDB",
+  "tableName": "productos",
+  "partitionKey": {
+    "fieldName": "ID",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}
