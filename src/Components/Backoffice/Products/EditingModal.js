@@ -1,4 +1,4 @@
-import { FaCheck, FaCross, FaTimes } from 'react-icons/fa'
+import { FaCheck, FaTimes } from 'react-icons/fa'
 import itemImg from '../../../Assets/item.jpg'
 
 const EditingModal = ({ item, onConfirm, onCancel }) => {

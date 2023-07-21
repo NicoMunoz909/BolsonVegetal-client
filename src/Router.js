@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from './App';
+import App from "./App";
 import Backoffice from "./Components/Backoffice";
 import Products from "./Components/Backoffice/Products";
 import Cart from "./Components/Cart";
@@ -8,9 +8,18 @@ import Home from "./Components/Home";
 import OrderPlaced from "./Components/OrderPlaced";
 import ShoppingPage from "./Components/ShoppingPage";
 import UnderConstruction from "./Components/UnderConstruction";
-import * as data from './data.js'
+import { useEffect, useState } from "react";
+import { config } from "./Constants";
 
 const Router = () => {
+  const [items, setItems] = useState([]);
+  const URL = config.url;
+
+  useEffect(() => {
+    fetch(URL)
+      .then((res) => res.json())
+      .then((data) => setItems(data));
+  }, [URL]);
 
   return (
     <>
@@ -21,16 +30,96 @@ const Router = () => {
             <Route path="pagina" element={<h1>Página Web</h1>}></Route>
           </Route>
           <Route path="/" element={<App />}>
-            <Route index element={<Home />}></Route>
-            <Route path="bolsones" element={<ShoppingPage titulo='Bolsones' filtros={['Agroecologico']} products={data.Bolsones} />}></Route>
-            <Route path="frutas" element={<ShoppingPage titulo='Frutas' filtros={['Agroecologico']} products={data.Frutas} />}></Route>
-            <Route path="verduras" element={<ShoppingPage titulo='Verduras' filtros={['Agroecologico']} products={data.Verduras} />}></Route>
-            <Route path="dietetica" element={<ShoppingPage titulo='Dietetica' filtros={[]} products={data.Dietetica} />}></Route>
-            <Route path="congelados" element={<ShoppingPage titulo='Congelados' filtros={[]} products={data.Congelados} />}></Route>
-            <Route path="almacen" element={<ShoppingPage titulo='Almacen' filtros={[]} products={data.Almacen} />}></Route>
-            <Route path="bebidas" element={<ShoppingPage titulo='Bebibdas' filtros={[]} products={data.Bebidas} />}></Route>
-            <Route path="ofertas" element={<ShoppingPage titulo='Ofertas'  filtros={['Agroecologico']} products={data.Ofertas} />}></Route>
-            <Route path="carrito" element={<Cart items={[data.Verduras[0], data.Verduras[3], data.Frutas[2], data.Frutas[5], data.Bolsones[0], data.Dietetica[3],data.Dietetica[3]]} />}></Route>
+            <Route
+              index
+              element={
+                <Home
+                  mostSold={items.slice(23, 28)}
+                  offers={items.filter((i) => i.tags.includes("Oferta"))}
+                />
+              }
+            ></Route>
+            <Route
+              path="bolsones"
+              element={
+                <ShoppingPage
+                  titulo="Bolsones"
+                  filtros={["Agroecologico"]}
+                  products={items.filter((i) => i.category === "Bolsones")}
+                />
+              }
+            ></Route>
+            <Route
+              path="frutas"
+              element={
+                <ShoppingPage
+                  titulo="Frutas"
+                  filtros={["Agroecologico"]}
+                  products={items.filter((i) => i.category === "Frutas")}
+                />
+              }
+            ></Route>
+            <Route
+              path="verduras"
+              element={
+                <ShoppingPage
+                  titulo="Verduras"
+                  filtros={["Agroecologico"]}
+                  products={items.filter((i) => i.category === "Verduras")}
+                />
+              }
+            ></Route>
+            <Route
+              path="dietetica"
+              element={
+                <ShoppingPage
+                  titulo="Dietetica"
+                  filtros={[]}
+                  products={items.filter((i) => i.category === "Dietetica")}
+                />
+              }
+            ></Route>
+            <Route
+              path="congelados"
+              element={
+                <ShoppingPage
+                  titulo="Congelados"
+                  filtros={[]}
+                  products={items.filter((i) => i.category === "Congelados")}
+                />
+              }
+            ></Route>
+            <Route
+              path="almacen"
+              element={
+                <ShoppingPage
+                  titulo="Almacen"
+                  filtros={[]}
+                  products={items.filter((i) => i.category === "Almacen")}
+                />
+              }
+            ></Route>
+            <Route
+              path="bebidas"
+              element={
+                <ShoppingPage
+                  titulo="Bebibdas"
+                  filtros={[]}
+                  products={items.filter((i) => i.category === "Bebidas")}
+                />
+              }
+            ></Route>
+            <Route
+              path="ofertas"
+              element={
+                <ShoppingPage
+                  titulo="Ofertas"
+                  filtros={["Agroecologico"]}
+                  products={items.filter((i) => i.tags.includes("Oferta"))}
+                />
+              }
+            ></Route>
+            <Route path="carrito" element={<Cart />}></Route>
             <Route path="checkout" element={<Checkout />}></Route>
             <Route path="compra-finalizada" element={<OrderPlaced />}></Route>
             <Route path="nosotros" element={<UnderConstruction />}></Route>

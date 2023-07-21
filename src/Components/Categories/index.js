@@ -1,28 +1,36 @@
-import React from 'react'
-import './Categories.css'
-import category from '../../Assets/category.png'
+import React from "react";
+import "./Categories.css";
+import category from "../../Assets/category.png";
 
 const Categories = (props) => {
-
-  const categories = ['bolsones', 'frutas', 'verduras', 'dietetica', 'almacen', 'congelados', 'bebidas', 'ofertas']
+  const categories = [
+    "bolsones",
+    "frutas",
+    "verduras",
+    "dietetica",
+    "almacen",
+    "congelados",
+    "bebidas",
+    "ofertas",
+  ];
 
   return (
     <div>
       <h2>{props.title}</h2>
-      <div className='categories'>
-        {categories.map( (i) => {
+      <div className="categories">
+        {categories.map((i, index) => {
           return (
-            <div className='category'>
+            <div className="category" key={index}>
               <a href={i}>
                 <p>{i}</p>
                 <img src={category} alt="" />
-              </a>  
+              </a>
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Categories
+export default Categories;
