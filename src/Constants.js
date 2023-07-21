@@ -3,7 +3,7 @@ const development = {
 };
 
 const production = {
-  url: "https://budgettracker-sc5q.onrender.com",
+  url: "https://bolsonvegetal.onrender.com/items",
 };
 
 export const config =
