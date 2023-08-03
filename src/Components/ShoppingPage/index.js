@@ -1,12 +1,11 @@
-import { useContext, useState } from 'react'
-import { FaSearch } from 'react-icons/fa'
-import banner from '../../Assets/frutasBanner.jpg'
-import Item from '../../Assets/item.jpg'
-import './shoppingPage.css'
-import { CartDispacthContext } from '../../Contexts/CartContext'
+import { useContext, useState } from "react";
+import { FaSearch } from "react-icons/fa";
+import banner from "../../Assets/frutasBanner.jpg";
+import Item from "../../Assets/item.jpg";
+import "./shoppingPage.css";
+import { CartDispacthContext } from "../../Contexts/CartContext";
 
-const ShoppingPage = ({titulo, products}) => {
-
+const ShoppingPage = ({ titulo, products }) => {
   const dispatch = useContext(CartDispacthContext);
 
   // const filterOptions = filtros
@@ -15,19 +14,19 @@ const ShoppingPage = ({titulo, products}) => {
   //   document.getElementById('filtersArrow').classList.toggle('rotated')
   // }
 
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState("");
 
   return (
     <div>
-      <div className='imgContainer shoppingPageBanner' id='imgContainer'>
+      <div className="imgContainer shoppingPageBanner" id="imgContainer">
         <h2>{titulo}</h2>
         <img src={banner} alt="" />
       </div>
-      <div className='filtersBar'>
-        <div className='filtersBar-header'>
-          <div className='searchBar alignCenter'>
+      <div className="filtersBar">
+        <div className="filtersBar-header">
+          <div className="searchBar alignCenter">
             <FaSearch />
-            <input type="text" onChange={(e) => setSearch(e.target.value)}/>
+            <input type="text" onChange={(e) => setSearch(e.target.value)} />
           </div>
           {/* <div className='alignCenter' onClick={toggleFilters}>
             Filtros
@@ -46,24 +45,29 @@ const ShoppingPage = ({titulo, products}) => {
         </div> 
         not using filter right now, might implement in the future*/}
       </div>
-      <div className='itemsCarouselContainer'>
-        <div className='itemsContainer' style={{flexWrap: 'wrap'}}>
-          {products.filter(item => item.name.toLowerCase().includes(search.toLowerCase())).map( i => {
-            return (
-              <div className='itemContainer' id='items-container' style={{width: '40%'}}>
-                <div className='item'>
-                  <img src={Item} alt={i.name} />
-                  <h3>{i.name}</h3>
-                  <p>${i.price} x {i.priceType}</p>
-                  <button onClick={() => dispatch({type: 'ADD', item: i})}>Añadir al carrito</button>
+      <div className="itemsCarouselContainer">
+        <div className="itemsContainer" style={{ flexWrap: "wrap" }}>
+          {products.length === 0 && <h2 style={{ margin: "auto" }}>No hay productos para mostrar</h2>}
+          {products
+            .filter((item) => item.name.toLowerCase().includes(search.toLowerCase()))
+            .map((i) => {
+              return (
+                <div className="itemContainer" id="items-container" style={{ width: "40%" }}>
+                  <div className="item">
+                    <img src={Item} alt={i.name} />
+                    <h3>{i.name}</h3>
+                    <p>
+                      ${i.price} x {i.priceType}
+                    </p>
+                    <button onClick={() => dispatch({ type: "ADD", item: i })}>Añadir al carrito</button>
+                  </div>
                 </div>
-              </div>
-            )
-          })}
+              );
+            })}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ShoppingPage
+export default ShoppingPage;
