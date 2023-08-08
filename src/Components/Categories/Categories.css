@@ -14,10 +14,11 @@
 
 .category img {
   width: 100%;
+  border-radius: 10px;
 }
 
 .category img:hover {
-  background-color: rgba(0, 0, 0, 0.26);
+  box-shadow: 0px 0px 6px 2px #009550;
   cursor: pointer;
 }
 

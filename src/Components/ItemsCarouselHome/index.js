@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 import "./ItemsCarouselHome.css";
-import Item from "../../Assets/item.jpg";
 import { CartDispacthContext } from "../../Contexts/CartContext";
 
 const ItemsCarouselHome = ({ id, items }) => {
@@ -12,14 +11,10 @@ const ItemsCarouselHome = ({ id, items }) => {
   const translateLeft = () => {
     const itemsContainer = document.getElementById(id);
     if (translatePercentage > 0) {
-      itemsContainer.style.transform = `translateX(-${
-        translatePercentage - 100
-      }%)`;
+      itemsContainer.style.transform = `translateX(-${translatePercentage - 100}%)`;
       translatePercentage -= 100;
     } else {
-      itemsContainer.style.transform = `translateX(${
-        translatePercentage + 10
-      }%)`;
+      itemsContainer.style.transform = `translateX(${translatePercentage + 10}%)`;
       setTimeout(() => {
         itemsContainer.style.transform = `translateX(-${0}%)`;
       }, 100);
@@ -29,18 +24,12 @@ const ItemsCarouselHome = ({ id, items }) => {
   const translateRight = () => {
     const itemsContainer = document.getElementById(id);
     if (translatePercentage < (items.length - 1) * 100) {
-      itemsContainer.style.transform = `translateX(-${
-        translatePercentage + 100
-      }%)`;
+      itemsContainer.style.transform = `translateX(-${translatePercentage + 100}%)`;
       translatePercentage += 100;
     } else {
-      itemsContainer.style.transform = `translateX(-${
-        translatePercentage + 10
-      }%)`;
+      itemsContainer.style.transform = `translateX(-${translatePercentage + 10}%)`;
       setTimeout(() => {
-        itemsContainer.style.transform = `translateX(-${
-          (items.length - 1) * 100
-        }%)`;
+        itemsContainer.style.transform = `translateX(-${(items.length - 1) * 100}%)`;
       }, 100);
     }
   };
@@ -55,14 +44,12 @@ const ItemsCarouselHome = ({ id, items }) => {
           return (
             <div className="itemContainer" key={i.id}>
               <div className="item">
-                <img src={Item} alt={i.name} />
+                <img src={`https://placehold.co/200x200?text=${i.name}`} alt={i.name} />
                 <h3>{i.name}</h3>
                 <p>
                   ${i.price} x {i.priceType}
                 </p>
-                <button onClick={() => dispatch({ type: "ADD", item: i })}>
-                  Añadir al carrito
-                </button>
+                <button onClick={() => dispatch({ type: "ADD", item: i })}>Añadir al carrito</button>
               </div>
             </div>
           );

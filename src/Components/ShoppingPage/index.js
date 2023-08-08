@@ -1,7 +1,5 @@
 import { useContext, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import banner from "../../Assets/frutasBanner.jpg";
-import Item from "../../Assets/item.jpg";
 import "./shoppingPage.css";
 import { CartDispacthContext } from "../../Contexts/CartContext";
 
@@ -19,8 +17,7 @@ const ShoppingPage = ({ titulo, products }) => {
   return (
     <div>
       <div className="imgContainer shoppingPageBanner" id="imgContainer">
-        <h2>{titulo}</h2>
-        <img src={banner} alt="" />
+        <img src={`https://placehold.co/1920x540?text=${titulo}`} alt="" />
       </div>
       <div className="filtersBar">
         <div className="filtersBar-header">
@@ -54,7 +51,7 @@ const ShoppingPage = ({ titulo, products }) => {
               return (
                 <div className="itemContainer" id="items-container" style={{ width: "40%" }}>
                   <div className="item">
-                    <img src={Item} alt={i.name} />
+                    <img src={`https://placehold.co/200x200?text=${i.name}`} alt={i.name} />
                     <h3>{i.name}</h3>
                     <p>
                       ${i.price} x {i.priceType}

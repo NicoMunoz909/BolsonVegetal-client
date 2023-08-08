@@ -9,6 +9,7 @@
 .subBanner form {
   position: absolute;
   width: 50%;
+  height: 100%;
   top: 10px;
   right: 10px;
   display: flex;
@@ -36,10 +37,26 @@
   border-radius: 40px;
   background-color: #009550;
   color: white;
-  font-family: 'Paper Flower';
+  font-family: "Paper Flower";
   font-size: 1.5em;
 }
 
 .subBanner button:hover {
   cursor: pointer;
+}
+
+@media (max-width: 425px) {
+  .subBanner form {
+    font-size: 1em;
+  }
+
+  .subBanner input {
+    height: 20px;
+  }
+
+  .subBanner button {
+    font-size: 1.3em;
+    padding: 10px;
+    margin-top: 0px;
+  }
 }

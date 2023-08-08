@@ -1,6 +1,5 @@
 import React from "react";
 import "./Categories.css";
-import category from "../../Assets/category.png";
 
 const Categories = (props) => {
   const categories = [
@@ -22,8 +21,7 @@ const Categories = (props) => {
           return (
             <div className="category" key={index}>
               <a href={i}>
-                <p>{i}</p>
-                <img src={category} alt="" />
+                <img src={`https://placehold.co/200x100?text=${i}&font=pt-sans`} alt="" />
               </a>
             </div>
           );
