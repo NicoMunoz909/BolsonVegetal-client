@@ -1,14 +1,16 @@
 .categories {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
+  margin: auto;
   margin-top: 10px;
+  width: 90vw;
 }
 
 .category {
   display: flex;
   justify-content: center;
-  width: 48vw;
+  width: 43vw;
   margin-top: 10px;
 }
 
