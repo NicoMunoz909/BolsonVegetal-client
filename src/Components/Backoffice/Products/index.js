@@ -21,12 +21,25 @@ const Products = () => {
 
   const handleEdit = (e) => {
     e.preventDefault();
-    setEditing(false);
+    let body = {
+      name: e.target.name.value,
+      price: e.target.price.value,
+      priceType: e.target.priceType.value,
+    };
+    fetch(URL + `/${selectedItem.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...body }),
+    }).finally(setEditing(false));
   };
 
-  const handleDelete = (e) => {
+  const handleDelete = (e, item) => {
     e.preventDefault();
-    setDeleteConfirm(false);
+    fetch(URL + `/${selectedItem.id}`, { method: "DELETE" })
+      .then(setItems(items.filter((item) => item.id !== selectedItem.id)))
+      .finally(setDeleteConfirm(false));
   };
 
   const handleCancel = (e) => {
@@ -36,29 +49,28 @@ const Products = () => {
   };
 
   const handleStockSwitch = (e, item) => {
-    e.target.classList.toggle("switchInner__off");
+    fetch(URL + `/${item.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ inStock: item.inStock === true ? false : true }),
+    }).finally(() => {
+      item.inStock = item.inStock === true ? false : true;
+      e.target.classList.toggle("switchInner__off");
+    });
   };
 
   return (
     <div>
-      {editing && (
-        <EditingModal
-          item={selectedItem}
-          onConfirm={handleEdit}
-          onCancel={handleCancel}
-        />
-      )}
+      {editing && <EditingModal item={selectedItem} onConfirm={handleEdit} onCancel={handleCancel} />}
       {deleteConfirm && (
-        <DeleteConfirmModal
-          item={selectedItem}
-          onConfirm={handleDelete}
-          onCancel={handleCancel}
-        />
+        <DeleteConfirmModal item={selectedItem} onConfirm={handleDelete} onCancel={handleCancel} />
       )}
       <h1 className="backoffice-header">Gestor de catálogo</h1>
       {items.map((item) => {
         return (
-          <div className="products-itemContainer">
+          <div className="products-itemContainer" key={item.id}>
             <div className="products-itemImgContainer">
               <img src={itemImg} alt="" />
             </div>
@@ -88,7 +100,7 @@ const Products = () => {
               <div className="switchContainer">
                 <div className="switchOutter">
                   <div
-                    className="switchInner"
+                    className={"switchInner" + (item.inStock ? " " : " switchInner__off")}
                     onClick={(e) => handleStockSwitch(e, item)}
                   ></div>
                 </div>

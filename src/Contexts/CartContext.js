@@ -22,7 +22,6 @@ function cartReducer(cart, action) {
     case "ADD": {
       const cartIndex = cart.findIndex((product) => product.name === action.item.name);
       if (cartIndex >= 0) {
-        console.log(cart[cartIndex].quant);
         cart[cartIndex].quant += 1;
         localStorage.setItem("cart", JSON.stringify(cart));
         return [...cart];
