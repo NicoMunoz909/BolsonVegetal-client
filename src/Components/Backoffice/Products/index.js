@@ -1,13 +1,15 @@
 import "./Products.css";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaPlusCircle, FaTrashAlt } from "react-icons/fa";
 import itemImg from "../../../Assets/item.jpg";
 import { useEffect, useState } from "react";
 import EditingModal from "./EditingModal";
 import DeleteConfirmModal from "./DeleteConfirmModal";
 import { config } from "../../../Constants";
+import CreateModal from "./CreateModal";
 
 const Products = () => {
   const [editing, setEditing] = useState(false);
+  const [creating, setCreating] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState(false);
   const [selectedItem, setSelectedItem] = useState(undefined);
   const [items, setItems] = useState([]);
@@ -18,6 +20,29 @@ const Products = () => {
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, [URL]);
+
+  const handleCreate = (e) => {
+    e.preventDefault();
+    let body = {
+      name: e.target.name.value,
+      description: e.target.description.value,
+      price: parseFloat(e.target.price.value),
+      priceType: e.target.priceType.value,
+      category: e.target.category.value,
+      tags: e.target.oferta.checked ? '["Oferta"]' : "[]",
+      imageUrl: null,
+    };
+    fetch(URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...body }),
+    })
+      .then((res) => res.json())
+      .then((item) => setItems([...items, item]))
+      .finally(setCreating(false));
+  };
 
   const handleEdit = (e) => {
     e.preventDefault();
@@ -57,6 +82,7 @@ const Products = () => {
   const handleCancel = (e) => {
     e.preventDefault();
     setEditing(false);
+    setCreating(false);
     setDeleteConfirm(false);
   };
 
@@ -75,11 +101,17 @@ const Products = () => {
 
   return (
     <div>
+      {creating && <CreateModal onConfirm={handleCreate} onCancel={handleCancel} />}
       {editing && <EditingModal item={selectedItem} onConfirm={handleEdit} onCancel={handleCancel} />}
       {deleteConfirm && (
         <DeleteConfirmModal item={selectedItem} onConfirm={handleDelete} onCancel={handleCancel} />
       )}
-      <h1 className="backoffice-header">Gestor de catálogo</h1>
+      <div className="backoffice-header">
+        <h1 style={{ margin: 0 }}>Gestor de catálogo</h1>
+        <button onClick={() => setCreating(true)}>
+          <FaPlusCircle />
+        </button>
+      </div>
       {items.map((item) => {
         return (
           <div className="products-itemContainer" key={item.id}>
