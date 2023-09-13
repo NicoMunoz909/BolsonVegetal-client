@@ -30,7 +30,6 @@ const Products = () => {
       priceType: e.target.priceType.value,
       category: e.target.category.value,
       tags: e.target.oferta.checked ? '["Oferta"]' : "[]",
-      imageUrl: null,
     };
     fetch(URL, {
       method: "POST",
@@ -48,8 +47,11 @@ const Products = () => {
     e.preventDefault();
     let body = {
       name: e.target.name.value,
-      price: e.target.price.value,
+      description: e.target.description.value,
+      price: parseFloat(e.target.price.value),
       priceType: e.target.priceType.value,
+      category: e.target.category.value,
+      tags: e.target.oferta.checked ? '["Oferta"]' : "[]",
     };
     fetch(URL + `/${selectedItem.id}`, {
       method: "PATCH",

@@ -15,7 +15,7 @@ const CreateModal = ({ onConfirm, onCancel }) => {
               <div className="products-modal__formField">
                 <label htmlFor="name">Nombre</label>
                 <div>
-                  <input type="text" name="name" id="name" />
+                  <input type="text" name="name" id="name" required />
                 </div>
               </div>
               <div className="products-modal__formField">
