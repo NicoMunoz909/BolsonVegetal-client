@@ -21,7 +21,7 @@ const Router = () => {
     fetch(URL)
       .then((res) => res.json())
       .then((data) => {
-        setItems(data);
+        setItems(data.filter((item) => item.inStock));
         setIsLoading(false);
       })
       .catch(() => setIsLoading(false));
