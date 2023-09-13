@@ -32,7 +32,19 @@ const Products = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ ...body }),
-    }).finally(setEditing(false));
+    })
+      .then(
+        setItems(
+          items.map((i) => {
+            if (i.id === selectedItem.id) {
+              return { ...i, ...body };
+            } else {
+              return i;
+            }
+          })
+        )
+      )
+      .finally(setEditing(false));
   };
 
   const handleDelete = (e, item) => {
