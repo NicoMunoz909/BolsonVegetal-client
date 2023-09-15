@@ -8,7 +8,7 @@ import SubscribeBanner from "../SubscribeBanner";
 const Home = ({ mostSold, offers }) => {
   return (
     <>
-      <h1 style={{ display: "hidden" }}>el bolson vegetal</h1>
+      <h1 style={{ display: "none" }}>el bolson vegetal</h1>
       <BannerCarousel />
       <BannerFooter />
       <h2>Nuestros Productos</h2>
