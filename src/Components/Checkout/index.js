@@ -101,7 +101,7 @@ ${cart
   const handleSubmit = (e) => {
     e.preventDefault();
     const encodedText = encodeForm();
-    window.open(`https://wa.me/543413062939?text=${encodedText}`);
+    window.open(`https://wa.me/5434133814984?text=${encodedText}`);
     dispatch({ type: "CLEAR" });
     navigateTo("/compra-finalizada");
   };
