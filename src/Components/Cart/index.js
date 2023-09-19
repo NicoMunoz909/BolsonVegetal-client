@@ -49,7 +49,7 @@ const Cart = () => {
             </div>
             <p>${i.price}</p>
             <div>
-              <img src={`https://placehold.co/200x200?text=${i.name}`} alt="" />
+              <img src={i.imageUrl} alt="" />
             </div>
           </div>
         );

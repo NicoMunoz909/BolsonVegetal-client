@@ -51,7 +51,7 @@ const ShoppingPage = ({ titulo, products }) => {
               return (
                 <div className="itemContainer" id="items-container" style={{ width: "40%" }}>
                   <div className="item">
-                    <img src={`https://placehold.co/200x200?text=${i.name}`} alt={i.name} />
+                    <img src={i.imageUrl} alt={i.name} />
                     <h3>{i.name}</h3>
                     <p>
                       ${i.price} x {i.priceType}

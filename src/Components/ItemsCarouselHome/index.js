@@ -44,7 +44,7 @@ const ItemsCarouselHome = ({ id, items }) => {
           return (
             <div className="itemContainer" key={i.id}>
               <div className="item">
-                <img src={`https://placehold.co/200x200?text=${i.name}`} alt={i.name} />
+                <img src={i.imageUrl} alt={i.name} />
                 <h3>{i.name}</h3>
                 <p>
                   ${i.price} x {i.priceType}
