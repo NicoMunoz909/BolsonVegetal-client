@@ -14,7 +14,7 @@ Muchas Gracias!`
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    window.open(`https://wa.me/543413062939?text=${encodeURIComponent(encodedText)}`)
+    window.open(`https://wa.me/543413814984?text=${encodeURIComponent(encodedText)}`)
     e.target.reset()
   }
 
