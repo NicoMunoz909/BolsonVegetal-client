@@ -3,7 +3,7 @@ const development = {
 };
 
 const production = {
-  url: "https://bolsonvegetal.onrender.com/items",
+  url: "https://bolsonvegetal-iqs3.onrender.com/items",
 };
 
 export const config =
